@@ -12,8 +12,8 @@ except ImportError:
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(15, GPIO.OUTPUT)
-GPIO.setup(14, GPIO.OUTPUT)
+GPIO.setup(15, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
 app = Flask(__name__)
 
 @app.route("/")
@@ -28,10 +28,10 @@ def open():
     return '200'
 
 @app.route("/close", methods=['POST'])
-def open():
-    GPIO.output(14, GPIO.HIGH)
+def close():
+    GPIO.output(18, GPIO.HIGH)
     time.sleep(1)
-    GPIO.output(14, GPIO.LOW)
+    GPIO.output(18, GPIO.LOW)
     return '200'
 
 if __name__ == "__main__":
