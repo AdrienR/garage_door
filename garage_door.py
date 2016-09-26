@@ -36,8 +36,11 @@ def close():
 
 if __name__ == "__main__":
     try:
-        app.run()
-    except KeyboardInterrupt:
+        app.run(host="0.0.0.0", port=80)
+    except (KeyboardInterrupt, Exception) as e:
+        print(e)
+    finally:
+        print("exiting")
         GPIO.cleanup()
         sys.exit()
 
