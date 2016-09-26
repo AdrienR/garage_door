@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+        <script>
+            function openDoor() {
+                console.log('send opening order');
+                $.post("/open", [], function(code){ alert("code : " + code);});
+            };
+
+            function closeDoor() {
+                console.log('send closing order');
+                $.post("/close", [], function(code){ alert("code : " + code);});
+            };
+        </script>
+    </head>
+    <body>
+        <h1>Door</h1>
+        
+        <button onclick="openDoor()">Open</button>
+        <button onclick="closeDoor()">Close</button>
+    </body>
+</html>
